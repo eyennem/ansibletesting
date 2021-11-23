@@ -1,0 +1,18 @@
+---
+
+- hosts: 192.168.1.191
+  become: true
+  tasks:
+
+  - name: update repository index
+    apt:
+      update_cache: yes
+
+  - name: Install apache2 package
+    apt:
+      name: apache2
+      state: latest
+  - name: add php for apache
+    apt:
+      name: libapache2-mod-php
+      state: latest
